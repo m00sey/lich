@@ -1,0 +1,81 @@
+# SAT2016
+
+allOf:
+- $ref: '#/definitions/Identified'
+- $ref: '#/definitions/Updatable'
+- type: object
+  properties:
+    TestDate:
+      type: string
+    MathScore:
+      type: integer
+      minimum: 200
+      maximum: 800
+    ReadingAndWritingScore:
+      type: integer
+      minimum: 200
+      maximum: 800
+    ReadingTestScore:
+      type: integer
+      minimum: 10
+      maximum: 40
+    WritingAndLanguageScore:
+      type: integer
+      minimum: 10
+      maximum: 40
+    MathTestScore:
+      type: integer
+      minimum: 10
+      maximum: 40
+    AnalysisInScience:
+      type: integer
+      minimum: 10
+      maximum: 40
+    AnalysisInHistory:
+      type: integer
+      minimum: 1
+      maximum: 15
+    WordsInContext:
+      type: integer
+      minimum: 1
+      maximum: 15
+    CommandOfEvidence:
+      type: integer
+      minimum: 1
+      maximum: 15
+    ExpressionOfIdeas:
+      type: integer
+      minimum: 1
+      maximum: 15
+    EnglishConventions:
+      type: integer
+      minimum: 1
+      maximum: 15
+    HeartOfAlgebra:
+      type: integer
+      minimum: 1
+      maximum: 15
+    AdvancedMathematics:
+      type: integer
+      minimum: 1
+      maximum: 15
+    ProblemSolvingData:
+      type: integer
+      minimum: 1
+      maximum: 15
+    EssayReadingSubscore:
+      type: integer
+      minimum: 2
+      maximum: 8
+    EssayAnalysisSubscore:
+      type: integer
+      minimum: 2
+      maximum: 8
+    EssayWritingSubscore:
+      type: integer
+      minimum: 2
+      maximum: 8
+  required:
+  - TestDate
+  - MathScore
+  - ReadingAndWritingScore

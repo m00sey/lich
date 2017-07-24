@@ -1,0 +1,26 @@
+swagger: '2.0'
+
+info:
+  version: 1.0.0
+  title: SCOIR API
+
+schemes:
+  - https
+host: local.scoir.com
+
+basePath: /api
+
+security:
+  - Authorization: []
+
+securityDefinitions:
+  Authorization:
+    type: apiKey
+    in: header
+    name: Authorization
+
+paths:
+  $ref: ./paths/paths.yml
+
+definitions:
+  $ref: ./definitions/index.yml

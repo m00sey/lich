@@ -1,0 +1,25 @@
+# Common
+Identified:
+  $ref: ./common/identified.yml
+Updatable:
+  $ref: ./common/updatable.yml
+
+#  College Board Test Scores
+SAT:
+  $ref: ./scores/collegeboard/sat.yml
+SAT2016:
+  $ref: ./scores/collegeboard/sat_2016.yml
+NMSQT:
+  $ref: ./scores/collegeboard/nmsqt.yml
+PSAT:
+  $ref: ./scores/collegeboard/psat.yml
+PSAT89:
+  $ref: ./scores/collegeboard/psat_89.yml
+PSAT10:
+  $ref: ./scores/collegeboard/psat_10.yml
+
+# ACT Test Scores
+ACT:
+  $ref: ./scores/act/act.yml
+PreACT:
+  $ref: ./scores/act/preact.yml

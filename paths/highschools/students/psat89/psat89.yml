@@ -1,0 +1,29 @@
+# /high_school/{highSchoolId}/student/{studentId}/PSAT89:
+post:
+  description: "Creates a new PSAT89 test score"
+  tags:
+  - scores
+  consumes:
+  - application/json
+  parameters:
+    - name: highSchoolId
+      in: path
+      description: ID of highschool the student is linked to
+      required: true
+      type: string
+    - name: studentId
+      in: path
+      description: Scoir ID of the student
+      required: true
+      type: string
+    - name: score
+      in: body
+      description: The submitted test score
+      required: true
+      schema:
+        $ref: '#/definitions/PSAT89'
+  responses:
+    '200':
+      description: The created PSAT89 test
+      schema:
+        $ref: '#/definitions/PSAT89'

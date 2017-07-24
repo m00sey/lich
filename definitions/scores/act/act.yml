@@ -1,0 +1,43 @@
+# ACT
+allOf:
+- $ref: '#/definitions/Identified'
+- $ref: '#/definitions/Updatable'
+- type: object
+  properties:
+    TestDate:
+      type: string
+    EnglishScore:
+      type: integer
+      minimum: 1
+      maximum: 36
+    MathScore:
+      type: integer
+      minimum: 1
+      maximum: 36
+    ReadingScore:
+      type: integer
+      minimum: 1
+      maximum: 36
+    ScienceScore:
+      type: integer
+      minimum: 1
+      maximum: 36
+    STEMScore:
+      type: integer
+      minimum: 1
+      maximum: 36
+    WritingScore:
+      type: integer
+      minimum: 2
+      maximum: 22
+    ELAScore:
+      type: integer
+      minimum: 1
+      maximum: 36
+  required:
+  - TestDate
+  - EnglishScore
+  - MathScore
+  - ReadingScore
+  - ScienceScore
+  - STEMScore

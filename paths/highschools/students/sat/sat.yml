@@ -1,0 +1,42 @@
+# /high_school/{highSchoolId}/student/{studentId}/SAT:
+post:
+  description: "Creates a new SAT test score"
+  produces:
+  - application/json
+  consumes:
+  - application/json
+  parameters:
+    - name: highSchoolId
+      in: path
+      description: BSON ObjectId of highschool the student is linked to
+      required: true
+      type: string
+      x-example: "{{Scores-HighSchoolId}}"
+
+    - name: studentId
+      in: path
+      description: BSON ObjectId of the registered scoir student.
+      required: true
+      type: string
+      x-example: "{{Scores-HighSchool-StudentId}}"
+
+    - name: score
+      in: body
+      description: The submitted test score
+      required: true
+      schema:
+        $ref: '#/definitions/SAT'
+
+  responses:
+    '200':
+      description: The created SAT test
+      schema:
+        $ref: '#/definitions/SAT'
+      examples:
+        application/json:
+          {
+            "TestDate": "01/01/2001",
+            "MathScore": 200,
+            "ReadingScore": 300,
+            "WritingScore": 400
+          }

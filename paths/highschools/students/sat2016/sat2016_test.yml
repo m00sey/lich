@@ -1,0 +1,70 @@
+# /high_school/{highSchoolId}/student/{studentId}/SAT2016/{testId}:
+post:
+  description: "Updates an existing SAT2016 test score"
+  tags:
+  - scores
+  consumes:
+  - application/json
+  parameters:
+    - name: highSchoolId
+      in: path
+      description: ID of highschool the student is linked to
+      required: true
+      type: string
+    - name: studentId
+      in: path
+      description: Scoir ID of the student
+      required: true
+      type: string
+    - name: testId
+      in: path
+      description: Test Id to update
+      required: true
+      type: string
+    - name: test
+      in: body
+      description: The submitted test score
+      required: true
+      schema:
+        $ref: '#/definitions/SAT2016'
+  responses:
+    '200':
+      description: The updated test score
+      schema:
+        $ref: '#/definitions/SAT2016'
+    '400':
+      description: Bad Request
+    '404':
+      description: The test could not be found
+    '409':
+      description: Test with this test date already exists
+    '500':
+      description: There was an error
+
+delete:
+  description: "Deletes an existing SAT2016 test score"
+  tags:
+  - scores
+  consumes:
+  - application/json
+  parameters:
+    - name: highSchoolId
+      in: path
+      description: ID of highschool the student is linked to
+      required: true
+      type: string
+    - name: studentId
+      in: path
+      description: Scoir ID of the student
+      required: true
+      type: string
+    - name: testId
+      in: path
+      description: Test Id to update
+      required: true
+      type: string
+  responses:
+    '200':
+      description: OK
+    '400':
+      description: Bad Request

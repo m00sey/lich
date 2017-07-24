@@ -1,0 +1,43 @@
+
+# Test Scores
+# SATs
+/high_school/{highSchoolId}/student/{studentId}/SAT:
+  $ref: ./highschools/students/sat/sat.yml
+# /high_school/{highSchoolId}/student/{studentId}/SAT/{testId}:
+#   $ref: ./highschools/students/sat/sat_test.yml
+# #SAT2016s
+# /high_school/{highSchoolId}/student/{studentId}/SAT2016:
+#   $ref: ./highschools/students/sat2016/sat2016.yml
+# /high_school/{highSchoolId}/student/{studentId}/SAT2016/{testId}:
+#   $ref: ./highschools/students/sat2016/sat2016_test.yml
+# # NMSQTs
+# /high_school/{highSchoolId}/student/{studentId}/NMSQT:
+#   $ref: ./highschools/students/nmsqt/nmsqt.yml
+# /high_school/{highSchoolId}/student/{studentId}/NMSQT/{testId}:
+#   $ref: ./highschools/students/nmsqt/nmsqt_test.yml
+# # PSAT
+# /high_school/{highSchoolId}/student/{studentId}/PSAT:
+#   $ref: ./highschools/students/psat/psat.yml
+# /high_school/{highSchoolId}/student/{studentId}/PSAT/{testId}:
+#   $ref: ./highschools/students/psat/psat_test.yml
+# # PSAT89
+# /high_school/{highSchoolId}/student/{studentId}/PSAT89:
+#   $ref: ./highschools/students/psat89/psat89.yml
+# /high_school/{highSchoolId}/student/{studentId}/PSAT89/{testId}:
+#   $ref: ./highschools/students/psat89/psat89_test.yml
+# # PSAT10
+# /high_school/{highSchoolId}/student/{studentId}/PSAT10:
+#   $ref: ./highschools/students/psat10/psat10.yml
+# /high_school/{highSchoolId}/student/{studentId}/PSAT10/{testId}:
+#   $ref: ./highschools/students/psat10/psat10_test.yml
+#
+# #ACTs
+# /high_school/{highSchoolId}/student/{studentId}/ACT:
+#   $ref: ./highschools/students/act/act.yml
+# /high_school/{highSchoolId}/student/{studentId}/ACT/{testId}:
+#   $ref: ./highschools/students/act/act_test.yml
+# #PreACTS
+# /high_school/{highSchoolId}/student/{studentId}/PreACT:
+#   $ref: ./highschools/students/preact/preact.yml
+# /high_school/{highSchoolId}/student/{studentId}/PreACT/{testId}:
+#   $ref: ./highschools/students/preact/preact_test.yml

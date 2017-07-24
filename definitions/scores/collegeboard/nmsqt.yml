@@ -1,0 +1,20 @@
+# NMSQT
+allOf:
+- $ref: '#/definitions/Identified'
+- $ref: '#/definitions/Updatable'
+- type: object
+  properties:
+    TestDate:
+      type: string
+    MathScore:
+      type: integer
+      minimum: 160
+      maximum: 760
+    ReadingAndWritingScore:
+      type: integer
+      minimum: 160
+      maximum: 760
+  required:
+  - TestDate
+  - MathScore
+  - ReadingAndWritingScore

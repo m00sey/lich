@@ -1,0 +1,29 @@
+# /high_school/{highSchoolId}/student/{studentId}/ACT:
+post:
+  description: "Creates a new ACT test score"
+  tags:
+  - scores
+  consumes:
+  - application/json
+  parameters:
+    - name: highSchoolId
+      in: path
+      description: ID of highschool the student is linked to
+      required: true
+      type: string
+    - name: studentId
+      in: path
+      description: Scoir ID of the student
+      required: true
+      type: string
+    - name: score
+      in: body
+      description: The submitted test score
+      required: true
+      schema:
+        $ref: '#/definitions/ACT'
+  responses:
+    '200':
+      description: "The created ACT test"
+      schema:
+        $ref: '#/definitions/ACT'

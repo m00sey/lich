@@ -1,0 +1,6 @@
+#Identified
+type: object
+properties:
+  Id:
+    description: Id is assigned when the score is created
+    type: string

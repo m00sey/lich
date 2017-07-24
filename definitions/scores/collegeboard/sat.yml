@@ -1,0 +1,30 @@
+# SAT
+allOf:
+- $ref: '#/definitions/Identified'
+- $ref: '#/definitions/Updatable'
+- type: object
+  properties:
+    TestDate:
+      type: string
+      format: date
+    MathScore:
+      type: integer
+      minimum: 200
+      maximum: 800
+    ReadingScore:
+      type: integer
+      minimum: 200
+      maximum: 800
+    WritingScore:
+      type: integer
+      minimum: 200
+      maximum: 800
+    EssaySubscore:
+      type: integer
+    WritingMCSubscore:
+      type: integer
+  required:
+  - TestDate
+  - MathScore
+  - ReadingScore
+  - WritingScore

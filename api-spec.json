@@ -1,0 +1,509 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "SCOIR API"
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "local.scoir.com",
+  "basePath": "/api",
+  "security": [
+    {
+      "Authorization": []
+    }
+  ],
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization"
+    }
+  },
+  "paths": {
+    "/high_school/{highSchoolId}/student/{studentId}/SAT": {
+      "post": {
+        "description": "Creates a new SAT test score",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "highSchoolId",
+            "in": "path",
+            "description": "BSON ObjectId of highschool the student is linked to",
+            "required": true,
+            "type": "string",
+            "x-example": "5951669ceca84020a8438f91"
+          },
+          {
+            "name": "studentId",
+            "in": "path",
+            "description": "BSON ObjectId of the registered scoir student.",
+            "required": true,
+            "type": "string",
+            "x-example": "5951669ceca84020a8438f92"
+          },
+          {
+            "name": "score",
+            "in": "body",
+            "description": "The submitted test score",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SAT"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The created SAT test",
+            "schema": {
+              "$ref": "#/definitions/SAT"
+            },
+            "examples": {
+              "application/json": {
+                "TestDate": "01/01/2001",
+                "MathScore": 200,
+                "ReadingScore": 300,
+                "WritingScore": 400
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Identified": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "description": "Id is assigned when the score is created",
+          "type": "string"
+        }
+      }
+    },
+    "Updatable": {
+      "type": "object",
+      "properties": {
+        "UpdatedBy": {
+          "description": "UpdatedBy is managed by SCOIR",
+          "type": "string"
+        },
+        "UpdatedAt": {
+          "description": "UpdatedAt is managed by SCOIR",
+          "type": "string"
+        }
+      }
+    },
+    "SAT": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Identified"
+        },
+        {
+          "$ref": "#/definitions/Updatable"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "TestDate": {
+              "type": "string",
+              "format": "date",
+              "x-example": "foobar"
+            },
+            "MathScore": {
+              "type": "integer",
+              "minimum": 200,
+              "maximum": 800
+            },
+            "ReadingScore": {
+              "type": "integer",
+              "minimum": 200,
+              "maximum": 800
+            },
+            "WritingScore": {
+              "type": "integer",
+              "minimum": 200,
+              "maximum": 800
+            },
+            "EssaySubscore": {
+              "type": "integer"
+            },
+            "WritingMCSubscore": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "TestDate",
+            "MathScore",
+            "ReadingScore",
+            "WritingScore"
+          ]
+        }
+      ]
+    },
+    "SAT2016": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Identified"
+        },
+        {
+          "$ref": "#/definitions/Updatable"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "TestDate": {
+              "type": "string"
+            },
+            "MathScore": {
+              "type": "integer",
+              "minimum": 200,
+              "maximum": 800
+            },
+            "ReadingAndWritingScore": {
+              "type": "integer",
+              "minimum": 200,
+              "maximum": 800
+            },
+            "ReadingTestScore": {
+              "type": "integer",
+              "minimum": 10,
+              "maximum": 40
+            },
+            "WritingAndLanguageScore": {
+              "type": "integer",
+              "minimum": 10,
+              "maximum": 40
+            },
+            "MathTestScore": {
+              "type": "integer",
+              "minimum": 10,
+              "maximum": 40
+            },
+            "AnalysisInScience": {
+              "type": "integer",
+              "minimum": 10,
+              "maximum": 40
+            },
+            "AnalysisInHistory": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 15
+            },
+            "WordsInContext": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 15
+            },
+            "CommandOfEvidence": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 15
+            },
+            "ExpressionOfIdeas": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 15
+            },
+            "EnglishConventions": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 15
+            },
+            "HeartOfAlgebra": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 15
+            },
+            "AdvancedMathematics": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 15
+            },
+            "ProblemSolvingData": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 15
+            },
+            "EssayReadingSubscore": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 8
+            },
+            "EssayAnalysisSubscore": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 8
+            },
+            "EssayWritingSubscore": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 8
+            }
+          },
+          "required": [
+            "TestDate",
+            "MathScore",
+            "ReadingAndWritingScore"
+          ]
+        }
+      ]
+    },
+    "NMSQT": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Identified"
+        },
+        {
+          "$ref": "#/definitions/Updatable"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "TestDate": {
+              "type": "string"
+            },
+            "MathScore": {
+              "type": "integer",
+              "minimum": 160,
+              "maximum": 760
+            },
+            "ReadingAndWritingScore": {
+              "type": "integer",
+              "minimum": 160,
+              "maximum": 760
+            }
+          },
+          "required": [
+            "TestDate",
+            "MathScore",
+            "ReadingAndWritingScore"
+          ]
+        }
+      ]
+    },
+    "PSAT": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Identified"
+        },
+        {
+          "$ref": "#/definitions/Updatable"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "TestDate": {
+              "type": "string"
+            },
+            "MathScore": {
+              "type": "integer",
+              "minimum": 20,
+              "maximum": 80
+            },
+            "ReadingScore": {
+              "type": "integer",
+              "minimum": 20,
+              "maximum": 80
+            },
+            "WritingScore": {
+              "type": "integer",
+              "minimum": 20,
+              "maximum": 80
+            }
+          },
+          "required": [
+            "TestDate",
+            "MathScore",
+            "ReadingScore",
+            "WritingScore"
+          ]
+        }
+      ]
+    },
+    "PSAT89": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Identified"
+        },
+        {
+          "$ref": "#/definitions/Updatable"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "TestDate": {
+              "type": "string"
+            },
+            "MathScore": {
+              "type": "integer",
+              "minimum": 120,
+              "maximum": 720
+            },
+            "ReadingAndWritingScore": {
+              "type": "integer",
+              "minimum": 120,
+              "maximum": 720
+            }
+          },
+          "required": [
+            "TestDate",
+            "MathScore",
+            "ReadingAndWritingScore"
+          ]
+        }
+      ]
+    },
+    "PSAT10": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Identified"
+        },
+        {
+          "$ref": "#/definitions/Updatable"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "TestDate": {
+              "type": "string"
+            },
+            "MathScore": {
+              "type": "integer",
+              "minimum": 160,
+              "maximum": 760
+            },
+            "ReadingAndWritingScore": {
+              "type": "integer",
+              "minimum": 160,
+              "maximum": 760
+            }
+          },
+          "required": [
+            "TestDate",
+            "MathScore",
+            "ReadingAndWritingScore"
+          ]
+        }
+      ]
+    },
+    "ACT": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Identified"
+        },
+        {
+          "$ref": "#/definitions/Updatable"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "TestDate": {
+              "type": "string"
+            },
+            "EnglishScore": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 36
+            },
+            "MathScore": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 36
+            },
+            "ReadingScore": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 36
+            },
+            "ScienceScore": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 36
+            },
+            "STEMScore": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 36
+            },
+            "WritingScore": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 22
+            },
+            "ELAScore": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 36
+            }
+          },
+          "required": [
+            "TestDate",
+            "EnglishScore",
+            "MathScore",
+            "ReadingScore",
+            "ScienceScore",
+            "STEMScore"
+          ]
+        }
+      ]
+    },
+    "PreACT": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Identified"
+        },
+        {
+          "$ref": "#/definitions/Updatable"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "TestDate": {
+              "type": "string"
+            },
+            "EnglishScore": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 36
+            },
+            "MathScore": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 36
+            },
+            "ReadingScore": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 36
+            },
+            "ScienceScore": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 36
+            },
+            "STEMScore": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 36
+            }
+          },
+          "required": [
+            "TestDate",
+            "EnglishScore",
+            "MathScore",
+            "ReadingScore",
+            "ScienceScore",
+            "STEMScore"
+          ]
+        }
+      ]
+    }
+  }
+}

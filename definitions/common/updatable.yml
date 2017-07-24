@@ -1,0 +1,10 @@
+#Updatable
+
+type: object
+properties:
+  UpdatedBy:
+    description: UpdatedBy is managed by SCOIR
+    type: string
+  UpdatedAt:
+    description: UpdatedAt is managed by SCOIR
+    type: string

@@ -1,0 +1,25 @@
+# PSAT
+allOf:
+- $ref: '#/definitions/Identified'
+- $ref: '#/definitions/Updatable'
+- type: object
+  properties:
+    TestDate:
+      type: string
+    MathScore:
+      type: integer
+      minimum: 20
+      maximum: 80
+    ReadingScore:
+      type: integer
+      minimum: 20
+      maximum: 80
+    WritingScore:
+      type: integer
+      minimum: 20
+      maximum: 80
+  required:
+  - TestDate
+  - MathScore
+  - ReadingScore
+  - WritingScore

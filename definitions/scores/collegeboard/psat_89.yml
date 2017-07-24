@@ -1,0 +1,20 @@
+# PSAT89
+allOf:
+- $ref: '#/definitions/Identified'
+- $ref: '#/definitions/Updatable'
+- type: object
+  properties:
+    TestDate:
+      type: string    
+    MathScore:
+      type: integer
+      minimum: 120
+      maximum: 720
+    ReadingAndWritingScore:
+      type: integer
+      minimum: 120
+      maximum: 720
+  required:
+  - TestDate
+  - MathScore
+  - ReadingAndWritingScore
